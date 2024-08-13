@@ -1,6 +1,7 @@
 ARG OPEN_DEVIN_BUILD_VERSION=dev
 FROM node:21.7.2-bookworm-slim AS frontend-builder
 
+ENV PYTHONDONTWRITEBYTECODE 1
 WORKDIR /app
 
 COPY ./frontend/package.json frontend/package-lock.json ./
