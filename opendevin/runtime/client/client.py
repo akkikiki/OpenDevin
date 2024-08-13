@@ -136,6 +136,12 @@ class RuntimeClient:
 
         # TODO:
         if not os.path.exists(self.initial_pwd):
+            print(f"{self.initial_pwd} does not exist")
+            command += f' && mkdir -p {self.initial_pwd}'
+            command += f' && chown -R {username}:root {self.initial_pwd}'
+            command += f' && chmod g+s {self.initial_pwd}'
+        else:
+            print(f"{self.initial_pwd} exists")
             command += f' && mkdir -p {self.initial_pwd}'
             command += f' && chown -R {username}:root {self.initial_pwd}'
             command += f' && chmod g+s {self.initial_pwd}'
