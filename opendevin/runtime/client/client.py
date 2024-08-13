@@ -134,6 +134,7 @@ class RuntimeClient:
             f'-g root -G sudo -u {user_id} {username}'
         )
 
+        # TODO:
         if not os.path.exists(self.initial_pwd):
             command += f' && mkdir -p {self.initial_pwd}'
             command += f' && chown -R {username}:root {self.initial_pwd}'
